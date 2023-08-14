@@ -1,4 +1,5 @@
 import { Sora, Tilt_Prism } from "next/font/google";
+import { metadata } from "./Head";
 
 const sora = Sora({
   subsets: ["latin"],
