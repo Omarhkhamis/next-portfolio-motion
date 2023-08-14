@@ -17,6 +17,8 @@ import {
   SiFramer,
   SiAdobexd,
   SiAdobephotoshop,
+  SiAdobeillustrator,
+  SiTailwindcss,
 } from "react-icons/si";
 
 export const aboutData = [
@@ -33,24 +35,17 @@ export const aboutData = [
           <SiNextdotjs />,
           <SiFramer />,
           <FaWordpress />,
+          <SiTailwindcss />,
         ],
       },
       {
         title: "UI/UX Design",
-        icons: [<FaFigma />, <SiAdobexd />, <SiAdobephotoshop />],
-      },
-    ],
-  },
-  {
-    title: "awards",
-    info: [
-      {
-        title: "Webby Awards - Honoree",
-        stage: "2011 - 2012",
-      },
-      {
-        title: "Adobe Design Achievement Awards - Finalist",
-        stage: "2009 - 2010",
+        icons: [
+          <FaFigma />,
+          <SiAdobexd />,
+          <SiAdobephotoshop />,
+          <SiAdobeillustrator />,
+        ],
       },
     ],
   },
@@ -97,40 +92,86 @@ import Circles from "../../components/Circles";
 const About = () => {
   const [index, setIndex] = useState(0);
   return (
-    <div className="h-full bg-primary/30 py-32 text-center xl:text-left">
+    <div className="h-full mx-auto bg-primary/30 py-10 xl:p-48 text-center xl:text-left">
       <Circles />
       <motion.div
         variants={fadeIn("right", 0.2)}
         initial="hidden"
         animate="show"
         exit={"hidden"}
-        className="hidden xl:flex absolute bottom-0 -left-[370px]"
+        className="hidden xl:flex absolute bottom-0 -left-[280px] w-[40%]"
       >
         <Avatar />
       </motion.div>
-      <div className="container mx-auto h-full flex flex-col items-center xl:flex-row gap-x-6">
-        <div className="flex-1 flex flex-col justify-center">
-          <h2 className="h2">
+      <div className="container mx-auto h-full flex flex-col items-center xl:flex-row gap-x-6 relative z-10">
+        <div className="flex-1 flex flex-col justify-center pt-20">
+          <motion.h2
+            variants={fadeIn("right", 0.2)}
+            initial="hidden"
+            animate="show"
+            exit={"hidden"}
+            className="text-3xl md:text-5xl "
+          >
             Captivating <span className="text-accent">stories</span> birth
             magnificent designs.
-          </h2>
-          <p className="max-w-[500px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-2 xl:px-0">
-            10 years ago, I began freelancing as a Developer. since then,
-            I&aposve done remote work for agencies, counsulted for startups, and
+          </motion.h2>
+          <motion.p
+            variants={fadeIn("right", 0.4)}
+            initial="hidden"
+            animate="show"
+            exit={"hidden"}
+            className="max-w-[400px] mx-auto xl:mx-0 mb-6 xl:mb-6 py-2 px-2 xl:px-0"
+          >
+            10 years ago, I began freelancing as a Developer. since then, I've
+            done remote work for agencies, counsulted for startups, and
             collaborated on digital products for business and consumer use.
-          </p>
+          </motion.p>
           {/**counters */}
-          <div>
-            <div>
+          <motion.div
+            variants={fadeIn("right", 0.6)}
+            initial="hidden"
+            animate="show"
+            exit={"hidden"}
+            className="hidden md:flex md:max-w-xl xl:max-w-none mx-auto xl:mx-0 mb-8"
+          >
+            <div className="flex flex-1 xl:gap-x-6">
               {/**experince */}
               <div className="relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0">
-                <CountUp start={0} end={10} duration={5} /> +
+                <div className="text-xl xl:text-3xl font-extrabold text-accent">
+                  <CountUp start={0} end={4} duration={5} /> +
+                </div>
+                <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]">
+                  Years of experience
+                </div>
               </div>
-              <div>Years of experience</div>
+              {/**Clients */}
+              <div className="relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0">
+                <div className="text-xl xl:text-3xl font-extrabold text-accent">
+                  <CountUp start={0} end={10} duration={5} /> +
+                </div>
+                <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]">
+                  satisfied Clients{" "}
+                </div>
+              </div>
+              {/**Finish Projects */}
+              <div className="relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0">
+                <div className="text-xl xl:text-3xl font-extrabold text-accent">
+                  <CountUp start={0} end={20} duration={5} /> +
+                </div>
+                <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]">
+                  Finished Projects{" "}
+                </div>
+              </div>
             </div>
-          </div>
+          </motion.div>
         </div>
-        <div className="flex flex-col w-full xl:max-w-[48%] h-[480px]">
+        <motion.div
+          variants={fadeIn("left", 0.4)}
+          initial="hidden"
+          animate="show"
+          exit={"hidden"}
+          className="flex flex-col w-full xl:justify-center xl:max-w-[48%] h-[480px]"
+        >
           <div className="flex gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4">
             {aboutData.map((item, itemIndex) => {
               return (
@@ -171,7 +212,7 @@ const About = () => {
               );
             })}
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
